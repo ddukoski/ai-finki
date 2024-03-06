@@ -72,8 +72,8 @@ class Beakers(Problem):
 
 if __name__ == "__main__":
     """
-    state format: ((4, 6), (cap1, cap2)) where xi = 4 yi = 6,
-    telling which beaker is what quantity full, and cap1 and cap2 are according capacities
+     state format: ((4, 6), (cap1, cap2)) where xi = 4 yi = 6,
+     telling which beaker is what quantity full, and cap1 and cap2 are according capacities
     """
 
     goal_state = tuple(map(int, input().split()))
@@ -83,6 +83,11 @@ if __name__ == "__main__":
     in_state = (in_values, capacity)
 
     problem = Beakers(initial=in_state, goal=(goal_state, capacity))
+
+    """
+     very important not to tree search, since we know it's possible to get repeating sequences of
+     actions and get stuck in a loopy path (unless avoided by tree search)
+    """
     node_sol = breadth_first_graph_search(problem=problem)
 
     print("Solution: " + node_sol.solution().__str__())
