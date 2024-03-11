@@ -16,47 +16,47 @@ class Molecules(Problem):
 
     def successor(self, state):
         s_states = dict()
-
-        for atom in range(3):
-            for direction in self.directions:
-                res = self.move(list(state[atom]), list(self.directions[direction]), depth=0)
-                if res is None:
+        for direction in self.directions:
+            for atom in range(3):
+                transitioned = self.move(idx=atom, where=list(self.directions[direction]), depth=0, state=state)
+                if transitioned is None:
                     continue
-                n_state = list(state)
-                n_state[atom] = res
-                n_state = tuple(n_state)
-                if len(set(n_state)) != 3:  # careful! we are not checking whether we overlap
-                    continue
-                s_states[direction + ' ' + self.w_atom(atom)] = n_state
+                print(str(atom) + ' ' + direction + " | before: " + str(state))
+                s_states[direction] = transitioned
 
         return s_states
 
-    def w_atom(self, num):
-        if num == 0:
-            return 'H1'
-        if num == 1:
-            return 'O'
-        return 'H2'
+    def move(self, idx, where, depth, state):
 
-    def move(self, atom, where, depth):
-        if not self.validate_state(atom):
+        if not self.validate_state(state):
             if depth == 1:  # it's impossible to make a move
                 return None
-            return atom[0] - where[0], atom[1] - where[1]
+            else:
+                new_state = list(state)
+                new_state[idx] = (new_state[idx][0] - where[0], new_state[idx][1] - where[1])
+                return tuple(new_state)
 
-        new_atom = [atom[0] + where[0], atom[1] + where[1]]
+        new_atom = [state[idx][0] + where[0], state[idx][1] + where[1]]
+        new_atom = tuple(new_atom)
+        new_state = list(state)
+        new_state[idx] = new_atom
+        new_state = tuple(new_state)
 
-        return self.move(new_atom, where, depth + 1)
+        return self.move(idx, where, depth + 1, new_state)
 
-    def validate_state(self, atom):
-        if atom[0] > self.limit_i \
-                or atom[0] < 0 \
-                or atom[1] > self.limit_j \
-                or atom[1] < 0 \
-                or self.board[atom[0]][atom[1]] == 1:
+    def validate_state(self, state):
+        for atom in state:
+            if atom[0] > self.limit_i \
+                    or atom[0] < 0 \
+                    or atom[1] > self.limit_j \
+                    or atom[1] < 0 \
+                    or self.board[atom[0]][atom[1]] == 1:
+                return False
+
+        if len(set(state)) != 3:
             return False
 
-        return len(set())
+        return True
 
     def actions(self, state):
         return self.successor(state).keys()
@@ -65,8 +65,10 @@ class Molecules(Problem):
         return self.successor(state)[action]
 
     def goal_test(self, state):
-        return (state[0][1] == state[1][1] - 1) \
-            and (state[0][1] == state[2][1] - 2)
+        print(state)
+        return state[0][1] == state[1][1] - 1 \
+            and state[1][1] == state[2][1] - 1 \
+            and state[0][0] == state[1][0] and state[1][0] == state[2][0]
 
 
 if __name__ == '__main__':
@@ -88,7 +90,7 @@ if __name__ == '__main__':
 
     h1 = (0, 2)
     h2 = (5, 2)
-    o = (4, 6)
+    o = (4, 7)
 
     init_state = (h1, o, h2)
     print("start")
