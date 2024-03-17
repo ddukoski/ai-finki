@@ -1,7 +1,7 @@
 from searching_framework import Problem, astar_search, breadth_first_graph_search
 
 """
-Проблем 1 од трета аудиториска аудиториска ( потребна е и слика, и мака ми е ! :-) )
+Проблем 1 од 4та аудиториска.
 """
 
 
