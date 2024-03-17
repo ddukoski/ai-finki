@@ -1,4 +1,4 @@
-from searching_framework.uninformed_search import *
+from searching_framework import breadth_first_graph_search, Problem
 
 
 """
@@ -93,7 +93,10 @@ if __name__ == '__main__':
 
     init_state = (exp_start, block1, block2)
 
-    to_solve = Explorer(boundary_x=limit_j, boundary_y=limit_i, initial=init_state, goal=house_coord)
+    to_solve = Explorer(boundary_x=limit_j,
+                        boundary_y=limit_i,
+                        initial=init_state,
+                        goal=house_coord)
 
     solved_node = breadth_first_graph_search(to_solve)
 

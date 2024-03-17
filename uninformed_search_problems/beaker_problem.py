@@ -1,4 +1,4 @@
-from searching_framework import *
+from searching_framework import breadth_first_graph_search, Problem
 
 """
 Проблем:
@@ -88,7 +88,9 @@ if __name__ == "__main__":
 
     in_state = (in_values, capacity)
 
-    problem = Beakers(initial=in_state, goal=(goal_state, capacity))
+    problem = Beakers(initial=in_state,
+                      goal=(goal_state,
+                            capacity))
 
     """
      very important not to tree search, since we know it's possible to get repeating sequences of
