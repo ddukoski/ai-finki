@@ -101,5 +101,8 @@ if __name__ == "__main__":
 
     node_sol = astar_search(problem=problem)
 
-    print("Solution: " + node_sol.solution().__str__())
-    print("Solve: " + node_sol.solve().__str__())
+    if node_sol is not None:
+        print("Solution: " + node_sol.solution().__str__())
+        print("Solve: " + node_sol.solve().__str__())
+    else:
+        print("No solution found")

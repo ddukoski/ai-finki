@@ -77,6 +77,7 @@ if __name__ == '__main__':
 
     problem = EightPuzzle(init_state, goal)
     solve = astar_search(problem)
+
     if solve is not None:
         print(solve.solution())
     else:

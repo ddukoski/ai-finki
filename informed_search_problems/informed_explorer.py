@@ -111,5 +111,7 @@ if __name__ == '__main__':
                      goal=house_coord)
 
     solved_node = astar_search(solve)
-
-    print(solved_node.solution())
+    if solved_node is not None:
+        print(solved_node.solution())
+    else:
+        print("No solution found")

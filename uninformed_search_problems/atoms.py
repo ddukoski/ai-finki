@@ -97,4 +97,7 @@ if __name__ == '__main__':
     problem = Molecules(b, init_state, ())
     solved = breadth_first_graph_search(problem)
 
-    print(solved.path())
+    if solved is not None:
+        print(solved.path())
+    else:
+        print("No solution found")
