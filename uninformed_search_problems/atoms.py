@@ -1,4 +1,4 @@
-from searching_framework.uninformed_search import *
+from searching_framework import breadth_first_graph_search, Problem
 
 
 class Molecules(Problem):
@@ -75,7 +75,7 @@ if __name__ == '__main__':
     '''
     in the board 1 is an obstacle, 0 is a free space
     
-    state format: (posH1, posO, posH2)
+    state format: (posH1, posO, posH2), where each position is a tuple
     '''
 
     b = [  # concrete example
@@ -97,4 +97,7 @@ if __name__ == '__main__':
     problem = Molecules(b, init_state, ())
     solved = breadth_first_graph_search(problem)
 
-    print(solved.path())
+    if solved is not None:
+        print(solved.path())
+    else:
+        print("No solution found")

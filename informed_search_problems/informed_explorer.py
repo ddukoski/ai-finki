@@ -1,8 +1,7 @@
-from searching_framework import breadth_first_graph_search, Problem
-
+from searching_framework import Problem, astar_search, breadth_first_graph_search
 
 """
-Проблем 1 од трета аудиториска аудиториска ( потребна е и слика, и мака ми е ! :-) )
+Проблем 1 од 4та аудиториска.
 """
 
 
@@ -79,27 +78,39 @@ class Explorer(Problem):
 
         return (b1[0] + self.b1_dir, b1[1]), (b2[0] + self.b2_dir, b2[1])
 
+    def h(self, node):
+        """
+        It's important to understand the reasoning for using any heuristic, so:
+
+        We want our explorer to reach the house, so we can simplify
+        the problem by ignoring the blocks, and using a heuristic such as
+        Manhattan distance to represent the "real" distance to the house,
+        since it is a good representation from how far away the explorer is
+        from his house.
+        """
+        return abs(node.state[0][0] - self.goal[0]) + abs(node.state[0][1] - self.goal[0])
+
 
 if __name__ == '__main__':
     """
     state format: (explorer position, block1 position, block2 position)
-    all positions will be ordered pairs of x,y coordinates in a matrix
+    all positions will be ordered pairs of i - rows, j - columns coordinates in a 2D array
     """
-    limit_i = int(input())
-    limit_j = int(input())
+
+    limit_i = int(input())  # grid 'y' limit
+    limit_j = int(input())  # grid 'x' limit
     house_coord = tuple(map(int, input().split()))  # goal state of explorer
     exp_start = tuple(map(int, input().split()))
     block1, block2 = (0, 2), (limit_i - 1, 4)  # constants are used in favor of brevity
 
     init_state = (exp_start, block1, block2)
 
-    to_solve = Explorer(boundary_x=limit_j,
-                        boundary_y=limit_i,
-                        initial=init_state,
-                        goal=house_coord)
+    solve = Explorer(boundary_x=limit_j,
+                     boundary_y=limit_i,
+                     initial=init_state,
+                     goal=house_coord)
 
-    solved_node = breadth_first_graph_search(to_solve)
-
+    solved_node = astar_search(solve)
     if solved_node is not None:
         print(solved_node.solution())
     else:
