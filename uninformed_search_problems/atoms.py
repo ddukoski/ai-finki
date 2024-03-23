@@ -21,7 +21,6 @@ class Molecules(Problem):
                 transitioned = self.move(idx=atom, where=list(self.directions[direction]), depth=0, state=state)
                 if transitioned is None:
                     continue
-                print(str(atom) + ' ' + direction + " | before: " + str(state))
                 s_states[direction] = transitioned
 
         return s_states
@@ -65,7 +64,6 @@ class Molecules(Problem):
         return self.successor(state)[action]
 
     def goal_test(self, state):
-        print(state)
         return state[0][1] == state[1][1] - 1 \
             and state[1][1] == state[2][1] - 1 \
             and state[0][0] == state[1][0] and state[1][0] == state[2][0]
