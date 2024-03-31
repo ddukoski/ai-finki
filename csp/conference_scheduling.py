@@ -23,10 +23,6 @@ class MaxAssignmentConstraint:
         return frequency <= 4
 
 
-def max_assignment_constraint(_domain, _problem):
-    return True
-
-
 if __name__ == '__main__':
     num = int(input())
 
