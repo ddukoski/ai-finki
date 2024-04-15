@@ -39,6 +39,7 @@ class Football(Problem):
 
             h[0] += self.shooting[shoot][0]
             h[1] += self.shooting[shoot][1]
+            
             if h == b:
                 res = self.shoot(state, self.shooting[shoot])
                 if res is not None:
@@ -98,6 +99,7 @@ class Football(Problem):
     def legal_pos(self, state):
         b = state[1]
         h = state[0]
+        
         if h == b:
             return False
 
@@ -123,11 +125,17 @@ if __name__ == '__main__':
 
     human = tuple(map(int, input().split(',')))
     ball = tuple(map(int, input().split(',')))
+    
     _goal = ((7, 2), (7, 3))
     _opponents = ((3, 3), (5, 4))
     _forbid_ball = (
-        (2, 2), (2, 3), (2, 4), (3, 2), (4, 2), (3, 4), (4, 4), (4, 3), (4, 5), (5, 5), (6, 5), (6, 4), (6, 3), (5, 3))
-    problem = Football(forbid_ball=_forbid_ball, opponents=_opponents, x_b=x_bound, y_b=y_bound, initial=(human, ball),
+        (2, 2), (2, 3), (2, 4), (3, 2), (4, 2), (3, 4), (4, 4), (4, 3), (4, 5), (5, 5), (6, 5), (6, 4), (6, 3), (5, 3)
+                )
+    
+    problem = Football(forbid_ball=_forbid_ball,
+                       opponents=_opponents, 
+                       x_b=x_bound, y_b=y_bound, 
+                       initial=(human, ball),
                        goal=_goal)
 
     solve = breadth_first_graph_search(problem)
