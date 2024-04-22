@@ -31,6 +31,7 @@ if __name__ == '__main__':
     classifier.fit(X=features_train, y=classes_train)  # training the model
 
     comparison = [classifier.predict([data_point]) for data_point in features_test]
+    # the data points (observations) are sent in a nested list because predict expects it to be in a list
 
     correct = 0
     for x, y in zip(comparison, classes_test):
@@ -38,3 +39,6 @@ if __name__ == '__main__':
             correct += 1
 
     print(f'Accuracy: {correct / len(features_test)}%')
+
+    patient_test = list(map(int, input().split()))
+    print(classifier.predict([patient_test])[0])
