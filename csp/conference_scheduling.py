@@ -64,6 +64,7 @@ if __name__ == '__main__':
     # Tuka dodadete go kodot za pechatenje
     solved = problem.getSolution()
 
+    # Formatiranje za ist output - ne e del od reshavanjeto na samata zadacha
     keys_iterate = ["Paper" + str(i) for i in range(1, 11)]
     skip = True
     for k in keys_iterate:
