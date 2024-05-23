@@ -8,7 +8,7 @@ def rff(path):
 
 
 if __name__ == '__main__':
-    dataset = rff("./data/medical_data.csv")
+    dataset = rff("data/medical_data.csv")
     dataset = [list(map(int, patient)) for patient in dataset]
 
     convert = {

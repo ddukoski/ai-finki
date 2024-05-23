@@ -15,7 +15,7 @@ def rff(path):
 
 
 if __name__ == '__main__':
-    dataset = rff("./data/car.csv")
+    dataset = rff("data/car.csv")
 
     # train an encoder to interpret categorical (of ordinal type here) data as numerical
     encoder = numerize_levels(dataset)

@@ -28,7 +28,7 @@ def print_accuracy_classifier(_classifier, features, classes, classifier_desc):
 
 
 if __name__ == '__main__':
-    feature_names, dataset = rff("./data/car.csv")
+    feature_names, dataset = rff("data/car.csv")
 
     # train an encoder to interpret categorical (of ordinal type here) data as numerical
     encoder = numerize_levels(dataset)
