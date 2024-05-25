@@ -56,7 +56,7 @@ if __name__ == '__main__':
     acc_upon_training = accuracy(net, train_X, train_Y)
     acc_upon_validation = accuracy(net, validate_X, validate_Y)
 
-    conclusion = 'Se sluchuva overfitting' if (acc_upon_training - acc_upon_validation) >= 0.15 else 'Ne se sluchuva overfitting'
+    conclusion = 'Se sluchuva overfitting' if (acc_upon_training - acc_upon_validation) >= 0.1 else 'Ne se sluchuva overfitting'
 
     print(conclusion)
     print(f'Tochnost so trenirachko mnozhestvo {acc_upon_training}')

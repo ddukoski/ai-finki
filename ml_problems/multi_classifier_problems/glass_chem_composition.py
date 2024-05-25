@@ -1,4 +1,4 @@
-from data.example_glass_1 import dataset
+from ml_problems.general.data.example_glass_1_ds import dataset
 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
