@@ -75,4 +75,4 @@ if __name__ == '__main__':
     classifier.fit(X=train_x, y=train_y_best)
     predictions = classifier.predict(test_x)
 
-    print(f"Tochnost so otstraneta kolona: {accuracy_score(y_true=test_y_best, y_pred=predictions)}")
+    print(f"Tochnost so otstraneta kolona: {max_acc}")

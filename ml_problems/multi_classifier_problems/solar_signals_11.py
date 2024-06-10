@@ -3,6 +3,33 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
 
+def precision_score(y_true, y_pred):
+
+    tp = 0
+    fp = 0
+
+    for actual, pred in zip(y_true, y_pred):
+        if actual == pred:
+            if actual == 1:
+                tp += 1
+        else:
+            if actual == 0:
+                fp += 1
+
+    return tp / (tp + fp)
+
+
+def accuracy_score(y_true, y_pred):
+
+    correct = 0
+
+    for actual, pred in zip(y_true, y_pred):
+        if actual == pred:
+            correct += 1
+
+    return correct / len(y_true
+                         )
+
 if __name__ == '__main__':
     x = int(input())
     make_classifier = input()
@@ -33,8 +60,6 @@ if __name__ == '__main__':
 
     pred = classifier.predict(test_x)
 
-    from sklearn.metrics import precision_score, accuracy_score
-
     acc_full_col = accuracy_score(y_true=test_y, y_pred=pred)
     prec_full_col = precision_score(y_true=test_y, y_pred=pred)
 
@@ -49,7 +74,7 @@ if __name__ == '__main__':
     prec_prune_col = precision_score(y_true=test_y, y_pred=pred_prune)
 
     if acc_prune_col < acc_full_col:
-        print(f'Klasifikatorot so site koloni ima pogolema tochnost\n{prec_full_col}')
+        print(f'Klasifiktorot so site koloni ima pogolema tochnost\n{prec_full_col}')
     elif acc_prune_col > acc_full_col:
         print(f'Klasifikatorot so edna kolona pomalku ima pogolema tochnost\n{prec_prune_col}')
     else:
