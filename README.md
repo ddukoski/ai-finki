@@ -1,5 +1,11 @@
-Repozitorium za resheni problemi od mene, na predmetot Veshtachka Inteligencija na FINKI.
+# Вештачка Интелигенција - ФИНКИ
 
-Paketot searching_framework e ramka so algoritmi za prebaruvanje (DFS, BFS, greedy, UCS i A*) i dopolnitelni strukturi kako FIFO redica...
+Репозиториум за практични задачи по предметот ВИ на ФИНКИ.
+Овде ќе најдете мои решени задачи од практичниот дел по предметот.
 
-Direktoriumot ml_problems gi sodzrzhi poddirektoriumite: naive_bayes_problems, decision_tree_problems, neural_net_problems i se nameneti za mashinsko uchenje, a ostanatite se problemi od prebaruvanje niz prostor na sostojbi.
+Директориумот ``searching_framework``: Рамка за пребарување низ простор на проблеми (DFS, BFS, greedy, UCS i A*). Овде се содржат и помошни податочни структури.
+
+Direktoriumot **ml_problems**: Ovde ќе најдете класификациски проблеми од Машинско учење и се решени со помош на ``sklearn`` библиотеката.
+-  ``naive_bayes_problems``: Директориум со проблеми решени со Наивен Баесов класификатор.
+-  ``decision_tree_problems``: Директориум со проблеми решени со Дрва на одлуки и Random Forests.
+-  ``neural_net_problems``: Директориум со проблеми решени со Невронски мрежи (``MLPClassifier``).
