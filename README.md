@@ -1,6 +1,6 @@
 # Вештачка Интелигенција - ФИНКИ
 
-![network](https://github.com/user-attachments/assets/a8101c3b-786b-4c1d-abe8-d50336d92222)
+![neural_net](https://github.com/user-attachments/assets/858124f7-a197-40bc-880f-fc7e04e6d98a)
 
 Репозиториум за практични задачи по предметот ВИ на ФИНКИ.
 Овде ќе најдете мои решени задачи од практичниот дел по предметот.
