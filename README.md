@@ -1,6 +1,6 @@
 # Вештачка Интелигенција - ФИНКИ
 
-## GIF: Feed-Forward Невронска Мрежа
+
 
 ![net](https://github.com/user-attachments/assets/f8efdf82-f58e-4f6d-9e8a-676053ad498c)
 
