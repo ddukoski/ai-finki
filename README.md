@@ -1,6 +1,7 @@
 # Вештачка Интелигенција - ФИНКИ
 
-![net](https://github.com/user-attachments/assets/f506e948-4a74-4d69-a030-7690e3069907)
+![net](https://github.com/user-attachments/assets/f8efdf82-f58e-4f6d-9e8a-676053ad498c)
+
 
 
 Репозиториум за практични задачи по предметот ВИ на ФИНКИ. Линк до опис на предметот: https://finki.ukim.mk/subject/F23L2S030
